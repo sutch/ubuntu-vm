@@ -5,6 +5,10 @@ if [[ $UPDATE  =~ true || $UPDATE =~ 1 || $UPDATE =~ yes ]]; then
     # apt-get update does not actually perform updates, it just downloads and indexes the list of packages
     apt-get -y update
 
+    # fix missing symlinks for Ubuntu 12.04 
+    # see http://serverfault.com/questions/417038/why-is-my-new-ubuntu-12-04-unable-to-verify-a-verisign-ssl
+    update-ca-certificates --fresh
+
     echo "==> Performing dist-upgrade (all packages and kernel)"
     apt-get -y dist-upgrade --force-yes
     reboot

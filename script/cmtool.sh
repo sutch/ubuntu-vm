@@ -67,6 +67,12 @@ install_salt()
 install_puppet()
 {
     echo "==> Installing Puppet"
+    # fix to resolve "Hash sum mismatch" error when downloading some updates
+    # see http://askubuntu.com/questions/41605/trouble-downloading-packages-list-due-to-a-hash-sum-mismatch-error
+    # [unsure why this will not solve problem when incuded in update.sh]
+    rm -fR /var/lib/apt/lists/*
+    apt-get update
+
     . /etc/lsb-release
 
     DEB_NAME=puppetlabs-release-${DISTRIB_CODENAME}.deb

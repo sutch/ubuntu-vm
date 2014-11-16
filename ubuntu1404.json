@@ -160,7 +160,7 @@
   {
     "type": "ovftool",
     "only": ["vmware-iso"],
-    "format": "vmx",
+    "format": "ova",
     "compression": 5
   }]
 }

@@ -154,7 +154,13 @@
   }],
   "post-processors": [{
     "type": "vagrant",
-    "keep_input_artifact": false,
+    "keep_input_artifact": true,
     "output": "box/{{.Provider}}/ubuntu1404-{{user `cm`}}{{user `cm_version`}}-{{user `version`}}.box"
+  },
+  {
+    "type": "ovftool",
+    "only": ["vmware-iso"],
+    "format": "vmx",
+    "compression": 5
   }]
 }

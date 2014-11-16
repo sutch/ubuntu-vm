@@ -6,6 +6,8 @@
 This repository contains templates for Ubuntu that can create Vagrant boxes
 using Packer.
 
+In addition, the templates for each Ubuntu LTS version have been modified to retain the source artifact and to create an OVA file for VMware builds.
+
 ## Current Boxes
 
 64-bit boxes:
@@ -31,6 +33,8 @@ using Packer.
 
 To build all the boxes, you will need Packer ([Website](packer.io)) 
 and both VirtualBox and VMware Fusion installed.
+
+Packer ovftool post processor (https://github.com/iancmcc/packer-post-processor-ovftool) is required when building VMware boxes and OVA files.
 
 Parallels requires that the
 [Parallels Virtualization SDK for Mac](http://ww.parallels.com/downloads/desktop)

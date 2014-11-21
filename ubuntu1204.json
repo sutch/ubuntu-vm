@@ -12,7 +12,8 @@
     "rsync_proxy": "{{env `rsync_proxy`}}",
     "no_proxy": "{{env `no_proxy`}}",
     "iso_url": "http://releases.ubuntu.com/12.04/ubuntu-12.04.5-server-amd64.iso",
-    "iso_checksum": "7540ace2d6cdee264432f5ed987236d32edef798"
+    "iso_checksum": "7540ace2d6cdee264432f5ed987236d32edef798",
+    "keep": false
   },
   "builders": [{
     "vm_name": "ubuntu1204",
@@ -144,13 +145,7 @@
   }],
   "post-processors": [{
     "type": "vagrant",
-    "keep_input_artifact": true,
+    "keep_input_artifact": false,
     "output": "box/{{.Provider}}/ubuntu1204-{{user `cm`}}{{user `cm_version`}}-{{user `version`}}.box"
-  },
-  {
-    "type": "ovftool",
-    "only": ["vmware-iso"],
-    "format": "ova",
-    "compression": 5
   }]
 }
